@@ -10,7 +10,6 @@ router.get('/', async (req, res) => {
 // @router GET http://localhost:5000/12345
 // @desc Request short url
 router.get('/:shorturl', async (req, res) => {
-  console.log('connection')
   const ShortUri = await Url.findOne({ short: req.params.shorturl })
 
   if (!ShortUri) {
