@@ -1,19 +1,19 @@
-const express = require('express')
-const mongoConnect = require('./db')
-require('dotenv').config()
+const express = require('express');
+const mongoConnect = require('./db');
+require('dotenv').config();
 
-const app = express()
+const app = express();
 
-app.set('view engine', 'ejs')
-app.use(express.urlencoded({ extended: false }))
+app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: false }));
 
-app.use('/', require('../routes/index'))
-app.use('/api/url', require('../routes/url'))
+app.use('/', require('../routes/index'));
+app.use('/api/url', require('../routes/url'));
 
 // Connection to database
-mongoConnect()
+mongoConnect();
 
-const port = process.env.PORT
+const port = process.env.PORT || 5001;
 app.listen(port, () => {
-  console.log(`Server listening on port ${port}`)
-})
+	console.log(`Server listening on port ${port}`);
+});
